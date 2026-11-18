@@ -1,0 +1,19 @@
+{
+  "description": "人设对话生成器 · 微信小程序",
+  "miniprogramRoot": "miniprogram/",
+  "compileType": "miniprogram",
+  "appid": "touristappid",
+  "projectname": "persona-miniprogram",
+  "libVersion": "3.4.10",
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false
+  },
+  "condition": {}
+}

@@ -1,0 +1,51 @@
+<view class="page chat-page">
+  <view class="topbar">
+    <view class="row spread">
+      <view>
+        <view class="who">{{personaName}}</view>
+        <view class="meta">{{turns}} 轮 · {{personaVersion}}<text wx:if="{{demoMode}}"> · 演示模式</text></view>
+      </view>
+      <view class="row gap">
+        <button class="btn small ghost" bindtap="exportJsonl">导出</button>
+        <button class="btn small ghost" bindtap="newChat">新会话</button>
+      </view>
+    </view>
+    <view wx:if="{{lastIssues.length}}" class="issue" bindtap="previewIssues">
+      质检提示：{{lastIssues[0]}}<text wx:if="{{lastIssues.length > 1}}"> 等 {{lastIssues.length}} 项</text>
+    </view>
+  </view>
+
+  <scroll-view class="messages" scroll-y scroll-with-animation scroll-into-view="{{anchor}}">
+    <view wx:if="{{!messages.length}}" class="empty">
+      <view class="title">和「{{personaName}}」聊聊</view>
+      <view class="hint">每成功一轮都会写进本地训练数据，点右上「导出」可复制成 JSONL。</view>
+      <view class="hint">没填 Key 时，先打开演示模式：</view>
+      <button class="btn small ghost empty-btn" bindtap="toggleDemo">{{demoMode ? '关闭演示模式' : '打开演示模式'}}</button>
+    </view>
+
+    <block wx:for="{{messages}}" wx:key="id">
+      <view class="row {{item.role === 'user' ? 'me' : 'them'}}">
+        <view wx:if="{{item.role === 'error'}}" class="bubble error">{{item.content}}</view>
+        <view wx:else class="bubble">{{item.content}}</view>
+      </view>
+    </block>
+
+    <view wx:if="{{pending}}" class="row them">
+      <view class="bubble typing">正在输入…</view>
+    </view>
+    <view id="anchor-{{messages.length}}" class="anchor"></view>
+  </scroll-view>
+
+  <view class="composer">
+    <input
+      class="input"
+      value="{{input}}"
+      placeholder="说点什么…"
+      confirm-type="send"
+      bindinput="handleInput"
+      bindconfirm="send"
+      disabled="{{pending}}"
+    />
+    <button class="btn send {{pending ? 'disabled' : ''}}" bindtap="send">{{pending ? '…' : '发送'}}</button>
+  </view>
+</view>

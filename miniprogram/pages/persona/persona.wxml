@@ -1,0 +1,83 @@
+<view class="page persona-page">
+  <scroll-view class="body" scroll-y>
+    <view class="card">
+      <view class="row spread">
+        <view class="title">人设</view>
+        <view class="sub">{{personaName}} · {{chars}} 字</view>
+      </view>
+      <view class="hint">第一人称写「她是谁、日子怎么过、怎么说话」。写得越具体，出戏越少。也可以只写一句话，她会照你的设定演。</view>
+
+      <view class="chips">
+        <view class="chip" data-index="0" bindtap="usePreset">陈默 · 编辑</view>
+        <view class="chip" data-index="1" bindtap="usePreset">苏晚 · 糖水摊</view>
+        <view class="chip" bindtap="insertTemplate">用模板</view>
+      </view>
+
+      <textarea
+        class="textarea persona-area"
+        value="{{persona}}"
+        maxlength="6000"
+        bindinput="handlePersona"
+        placeholder="你是……"
+      />
+
+      <view class="row spread actions">
+        <view class="hint">改了要先保存，聊天页才会用新人设</view>
+        <button class="btn small" bindtap="savePersona">保存人设</button>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="row spread">
+        <view class="title">接口</view>
+        <view class="row gap">
+          <view class="sub">演示模式</view>
+          <switch checked="{{settings.demo}}" color="#3f7a5f" bindchange="handleDemo" />
+        </view>
+      </view>
+      <view class="hint">演示模式不联网，用内置回复跑通流程；关掉后走下面的接口。Key 只存在本机 storage，不会上传。</view>
+
+      <view class="field">
+        <view class="label">API Key</view>
+        <view class="row gap">
+          <input
+            class="input grow"
+            value="{{settings.apiKey}}"
+            password="{{!showKey}}"
+            data-field="apiKey"
+            bindinput="handleField"
+            placeholder="sk-..."
+          />
+          <view class="eye" bindtap="toggleKey">{{showKey ? '隐藏' : '显示'}}</view>
+        </view>
+      </view>
+
+      <view class="field">
+        <view class="label">Base URL（OpenAI 兼容）</view>
+        <input class="input" value="{{settings.baseUrl}}" data-field="baseUrl" bindinput="handleField" placeholder="https://api.deepseek.com" />
+      </view>
+
+      <view class="field">
+        <view class="label">模型</view>
+        <input class="input" value="{{settings.model}}" data-field="model" bindinput="handleField" placeholder="deepseek-chat" />
+      </view>
+
+      <view class="row gap">
+        <view class="field grow">
+          <view class="label">temperature</view>
+          <input class="input" type="digit" value="{{settings.temperature}}" data-field="temperature" bindinput="handleField" />
+        </view>
+        <view class="field grow">
+          <view class="label">max_tokens</view>
+          <input class="input" type="number" value="{{settings.maxTokens}}" data-field="maxTokens" bindinput="handleField" />
+        </view>
+      </view>
+
+      <view class="row spread actions">
+        <button class="btn small ghost" bindtap="testConnection">{{testing ? '测试中…' : '测试连接'}}</button>
+        <button class="btn small" bindtap="saveSettings">保存设置</button>
+      </view>
+      <view wx:if="{{testResult}}" class="hint result">{{testResult}}</view>
+    </view>
+  </scroll-view>
+</view>

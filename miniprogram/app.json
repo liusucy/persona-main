@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/chat/chat",
+    "pages/batch/batch",
+    "pages/persona/persona",
+    "pages/guide/guide"
+  ],
+  "window": {
+    "navigationBarTitleText": "人设对话生成器",
+    "navigationBarBackgroundColor": "#f6f2ea",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#f6f2ea",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#95897a",
+    "selectedColor": "#3f7a5f",
+    "backgroundColor": "#fffdf9",
+    "borderStyle": "white",
+    "list": [
+      { "pagePath": "pages/chat/chat", "text": "聊天" },
+      { "pagePath": "pages/batch/batch", "text": "批量" },
+      { "pagePath": "pages/persona/persona", "text": "人设" },
+      { "pagePath": "pages/guide/guide", "text": "说明" }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents"
+}

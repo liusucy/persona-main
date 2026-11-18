@@ -1,0 +1,55 @@
+<view class="page guide-page">
+  <scroll-view class="body" scroll-y>
+    <view class="card">
+      <view class="title">这是什么</view>
+      <view class="para">一个跑在你手机上的「她」。写一段人设，她就照着这个身份、口吻、生活节奏回你消息；每一轮都会留下结构化记录，可以导出成训练数据。</view>
+      <view class="para">原版是命令行 + Python 脚本，这里是同一套提示词、质检规则和 JSONL 字段的微信小程序版：没有服务器，不传云端，Key 只在本机 storage。</view>
+    </view>
+
+    <view class="card">
+      <view class="title">三步用起来</view>
+      <view class="step"><text class="no">1</text><view class="step-body"><view class="step-t">写人设</view><view class="hint">「人设」页：点「用模板」或选一个预设，把尖括号里的内容换成她自己的日子。保存。</view></view></view>
+      <view class="step"><text class="no">2</text><view class="step-body"><view class="step-t">填接口</view><view class="hint">同一页填 API Key、Base URL、模型；点「测试连接」。不想填 Key 就先开「演示模式」。</view></view></view>
+      <view class="step"><text class="no">3</text><view class="step-body"><view class="step-t">开聊 / 批量</view><view class="hint">「聊天」页一句一句聊；「批量」页粘一段多轮台词，一次生成，直接复制 JSONL。</view></view></view>
+    </view>
+
+    <view class="card">
+      <view class="title">输入：messages</view>
+      <view class="para">每轮发给她的是「人设 + 最近 20 条 + 这一句」，和原版脚本完全一致。</view>
+      <view class="code">{{sample}}</view>
+      <view class="row spread actions">
+        <view class="hint">system 会随人设自动替换</view>
+        <button class="btn small ghost" bindtap="copySample">复制示例</button>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="title">输出：一行一条 JSONL</view>
+      <view class="para">导出时复制到剪贴板，粘进任意 .jsonl 文件即可。字段与原版 CLI 一致：</view>
+      <view class="schema-row" wx:for="{{schema}}" wx:key="key">
+        <text class="key">{{item.key}}</text>
+        <text class="desc">{{item.desc}}</text>
+      </view>
+      <view class="row spread actions">
+        <view class="hint">当前人设：{{personaName}} · {{version}}</view>
+        <button class="btn small ghost" bindtap="copySchema">复制字段表</button>
+      </view>
+    </view>
+
+    <view class="card">
+      <view class="title">边界与合规</view>
+      <view class="para">· 对方表达自伤念头时，她会先接住情绪，再建议联系信任的人或心理援助热线 <text class="hl">12356</text>，不扮演治疗师。</view>
+      <view class="para">· 被问「你是 AI 吗」，她的设定是坦诚一句带过，不否认、不长篇解释。</view>
+      <view class="para">· 真实对话可能包含隐私，导出后请自行脱敏，不要公开分发原始日志。</view>
+      <view class="para">· 小程序正式发布需要已备案域名和合法 AppID；本项目默认走「不校验合法域名」，只适合本地预览与自用。</view>
+    </view>
+
+    <view class="card">
+      <view class="title">常见问题</view>
+      <view class="qa"><view class="q">连不上 / 401</view><view class="a">Key 错、余额不足或 Base URL 少了 https://。先点「测试连接」看具体报错。</view></view>
+      <view class="qa"><view class="q">开发工具报「不在合法域名列表」</view><view class="a">详情 → 本地设置 → 勾上「不校验合法域名、web-view（业务域名）、TLS 版本以及 HTTPS 证书」。</view></view>
+      <view class="qa"><view class="q">她说话太长、像客服</view><view class="a">人设里加一句「一次 1~3 句，像微信，不用列表」，再补两条真实例句。</view></view>
+      <view class="qa"><view class="q">聊天记录会丢吗</view><view class="a">存在本机 storage，删小程序/清缓存才会丢；重要数据先导出 JSONL。</view></view>
+    </view>
+  </scroll-view>
+</view>

@@ -1,0 +1,127 @@
+/* 全局样式：暖白纸感 + 微信式气泡 */
+page {
+  --paper: #f6f2ea;
+  --card: #fffdf9;
+  --ink: #3a342c;
+  --muted: #95897a;
+  --line: #e7dfd2;
+  --green: #3f7a5f;
+  --green-soft: #dcece2;
+  --radius: 20rpx;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 30rpx;
+  line-height: 1.6;
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  box-sizing: border-box;
+}
+
+.card {
+  background: var(--card);
+  border: 1rpx solid var(--line);
+  border-radius: var(--radius);
+  padding: 28rpx;
+  margin: 0 28rpx 24rpx;
+}
+
+.title {
+  font-size: 34rpx;
+  font-weight: 600;
+  margin-bottom: 12rpx;
+}
+
+.sub {
+  color: var(--muted);
+  font-size: 26rpx;
+}
+
+.hint {
+  color: var(--muted);
+  font-size: 24rpx;
+  line-height: 1.7;
+}
+
+.btn {
+  background: var(--green);
+  color: #fff;
+  border-radius: 14rpx;
+  font-size: 30rpx;
+  line-height: 88rpx;
+  height: 88rpx;
+  padding: 0 40rpx;
+  margin: 0;
+  border: none;
+}
+
+.btn::after {
+  border: none;
+}
+
+.btn.ghost {
+  background: transparent;
+  color: var(--green);
+  border: 1rpx solid var(--green);
+}
+
+.btn.small {
+  font-size: 26rpx;
+  line-height: 64rpx;
+  height: 64rpx;
+  padding: 0 28rpx;
+  border-radius: 12rpx;
+}
+
+.btn.disabled {
+  opacity: 0.42;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.spread {
+  justify-content: space-between;
+}
+
+.gap {
+  gap: 16rpx;
+}
+
+.field {
+  margin-bottom: 22rpx;
+}
+
+.field .label {
+  font-size: 26rpx;
+  color: var(--muted);
+  margin-bottom: 10rpx;
+}
+
+.input {
+  background: #fff;
+  border: 1rpx solid var(--line);
+  border-radius: 12rpx;
+  height: 84rpx;
+  padding: 0 24rpx;
+  font-size: 30rpx;
+}
+
+.textarea {
+  width: 100%;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1rpx solid var(--line);
+  border-radius: 12rpx;
+  padding: 20rpx 24rpx;
+  font-size: 28rpx;
+  min-height: 240rpx;
+  line-height: 1.7;
+}

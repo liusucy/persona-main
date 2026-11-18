@@ -1,0 +1,19 @@
+# 开发者工具个人配置
+project.private.config.json
+
+# 依赖
+node_modules/
+miniprogram_npm/
+
+# 编辑器 / 系统
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# 本地 Key 与人设备份
+.env
+persona.local.md
+
+# 测试产物
+tests/out/

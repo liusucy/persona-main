@@ -1,0 +1,47 @@
+<view class="page batch-page">
+  <scroll-view class="body" scroll-y>
+    <view class="card">
+      <view class="row spread">
+        <view class="title">批量生成</view>
+        <view class="sub">{{personaName}} · {{demoMode ? '演示模式' : '接口模式'}}</view>
+      </view>
+      <view class="hint">每行一句用户台词，按顺序生成一段多轮对话；一次最多 {{maxLines}} 行。</view>
+
+      <view class="chips">
+        <view class="chip {{scenario === 'daily' ? 'on' : ''}}" data-key="daily" bindtap="loadScript">日常</view>
+        <view class="chip {{scenario === 'low' ? 'on' : ''}}" data-key="low" bindtap="loadScript">低谷</view>
+        <view class="chip {{scenario === 'intimate' ? 'on' : ''}}" data-key="intimate" bindtap="loadScript">亲密</view>
+        <view class="chip {{scenario === 'conflict' ? 'on' : ''}}" data-key="conflict" bindtap="loadScript">冲突</view>
+        <view class="chip {{scenario === 'work' ? 'on' : ''}}" data-key="work" bindtap="loadScript">求助</view>
+      </view>
+
+      <textarea
+        class="textarea"
+        value="{{script}}"
+        maxlength="4000"
+        bindinput="handleInput"
+        placeholder="每行一句，例如：&#10;今天下班好晚&#10;地铁上有人吵架"
+      />
+      <view class="row spread actions">
+        <view class="hint">{{progress}}/{{total}}<text wx:if="{{running}}"> · 生成中…</text></view>
+        <button class="btn small {{running ? 'disabled' : ''}}" bindtap="run">{{running ? '生成中' : '开始生成'}}</button>
+      </view>
+      <view wx:if="{{error}}" class="error">{{error}}</view>
+    </view>
+
+    <view wx:if="{{results.length}}" class="card">
+      <view class="row spread">
+        <view class="title">生成结果</view>
+        <view class="row gap">
+          <button class="btn small ghost" bindtap="exportJsonl">复制 JSONL</button>
+        </view>
+      </view>
+      <view wx:if="{{done && stats}}" class="hint">共 {{stats.total}} 轮 · 平均 {{stats.avgLength}} 字 · 疑似出戏 {{stats.issues}} 条 · 风险兜底 {{stats.riskCovered}}/{{stats.risk}}</view>
+      <view class="turn" wx:for="{{results}}" wx:key="turn_index">
+        <view class="turn-no">#{{item.turn_index + 1}}</view>
+        <view class="u">{{item.user}}</view>
+        <view class="a">{{item.assistant}}</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

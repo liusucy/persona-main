@@ -1,0 +1,80 @@
+.batch-page {
+  height: 100vh;
+}
+
+.body {
+  flex: 1;
+  padding: 28rpx 0 40rpx;
+  box-sizing: border-box;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14rpx;
+  margin: 22rpx 0;
+}
+
+.chip {
+  padding: 10rpx 26rpx;
+  border-radius: 40rpx;
+  border: 1rpx solid #e0d6c6;
+  color: #7c7163;
+  font-size: 26rpx;
+  background: #fff;
+}
+
+.chip.on {
+  background: #dcece2;
+  border-color: #3f7a5f;
+  color: #2f6449;
+}
+
+.actions {
+  margin-top: 20rpx;
+}
+
+.error {
+  margin-top: 16rpx;
+  padding: 14rpx 18rpx;
+  background: #fbe9e7;
+  color: #b3402f;
+  border-radius: 10rpx;
+  font-size: 26rpx;
+}
+
+.turn {
+  border-top: 1rpx solid #eee6d8;
+  padding: 20rpx 0 6rpx;
+}
+
+.turn:first-of-type {
+  border-top: none;
+}
+
+.turn-no {
+  color: #b3a795;
+  font-size: 22rpx;
+  margin-bottom: 8rpx;
+}
+
+.u {
+  color: #3a342c;
+  font-size: 28rpx;
+}
+
+.u::before {
+  content: "你：";
+  color: #95897a;
+}
+
+.a {
+  color: #2f5c47;
+  font-size: 28rpx;
+  margin-top: 6rpx;
+}
+
+.a::before {
+  content: "她：";
+  color: #7aa38e;
+}

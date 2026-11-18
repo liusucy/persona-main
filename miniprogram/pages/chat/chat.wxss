@@ -1,0 +1,122 @@
+.chat-page {
+  height: 100vh;
+}
+
+.topbar {
+  padding: 24rpx 28rpx 18rpx;
+  background: #fbf7ef;
+  border-bottom: 1rpx solid #e7dfd2;
+}
+
+.who {
+  font-size: 34rpx;
+  font-weight: 600;
+}
+
+.meta {
+  color: #95897a;
+  font-size: 24rpx;
+  margin-top: 4rpx;
+}
+
+.issue {
+  margin-top: 14rpx;
+  padding: 10rpx 16rpx;
+  background: #fdf0dd;
+  color: #a56a1d;
+  border-radius: 10rpx;
+  font-size: 24rpx;
+}
+
+.messages {
+  flex: 1;
+  padding: 28rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.empty {
+  background: #fffdf9;
+  border: 1rpx solid #e7dfd2;
+  border-radius: 20rpx;
+  padding: 30rpx;
+  margin-top: 20rpx;
+}
+
+.empty-btn {
+  margin-top: 20rpx;
+  display: inline-block;
+}
+
+.row {
+  display: flex;
+  margin-bottom: 22rpx;
+}
+
+.row.me {
+  justify-content: flex-end;
+}
+
+.row.them {
+  justify-content: flex-start;
+}
+
+.bubble {
+  max-width: 76%;
+  padding: 18rpx 24rpx;
+  border-radius: 22rpx;
+  font-size: 30rpx;
+  line-height: 1.65;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+
+.me .bubble {
+  background: #3f7a5f;
+  color: #fff;
+  border-bottom-right-radius: 8rpx;
+}
+
+.them .bubble {
+  background: #ffffff;
+  color: #3a342c;
+  border: 1rpx solid #ece4d7;
+  border-bottom-left-radius: 8rpx;
+}
+
+.bubble.typing {
+  color: #95897a;
+}
+
+.bubble.error {
+  background: #fbe9e7;
+  color: #b3402f;
+  border-color: #f3cfc9;
+  font-size: 26rpx;
+}
+
+.anchor {
+  height: 1rpx;
+}
+
+.composer {
+  display: flex;
+  gap: 16rpx;
+  padding: 18rpx 24rpx calc(18rpx + env(safe-area-inset-bottom));
+  background: #fbf7ef;
+  border-top: 1rpx solid #e7dfd2;
+  align-items: center;
+}
+
+.composer .input {
+  flex: 1;
+  background: #fff;
+}
+
+.send {
+  width: 140rpx;
+  line-height: 80rpx;
+  height: 80rpx;
+  padding: 0;
+  font-size: 28rpx;
+}

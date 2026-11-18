@@ -1,0 +1,48 @@
+.persona-page {
+  height: 100vh;
+}
+
+.body {
+  flex: 1;
+  padding: 28rpx 0 40rpx;
+  box-sizing: border-box;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14rpx;
+  margin: 22rpx 0;
+}
+
+.chip {
+  padding: 10rpx 24rpx;
+  border-radius: 40rpx;
+  border: 1rpx solid #e0d6c6;
+  color: #7c7163;
+  font-size: 26rpx;
+  background: #fff;
+}
+
+.persona-area {
+  min-height: 560rpx;
+}
+
+.actions {
+  margin-top: 22rpx;
+}
+
+.grow {
+  flex: 1;
+}
+
+.eye {
+  color: #3f7a5f;
+  font-size: 26rpx;
+  padding: 0 8rpx;
+}
+
+.result {
+  margin-top: 16rpx;
+  color: #2f6449;
+}
